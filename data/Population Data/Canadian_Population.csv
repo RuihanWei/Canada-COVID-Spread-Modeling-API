@@ -1,0 +1,71 @@
+﻿REF_DATE,GEO,DGUID,UOM,UOM_ID,SCALAR_FACTOR,SCALAR_ID,VECTOR,COORDINATE,VALUE,STATUS,SYMBOL,TERMINATED,DECIMALS
+Apr-19,Canada,2016A000011124,Persons,249,units,0,v1,1,37408205,,,,0
+Jul-19,Canada,2016A000011124,Persons,249,units,0,v1,1,37589262,,,,0
+Oct-19,Canada,2016A000011124,Persons,249,units,0,v1,1,37797496,,,,0
+Jan-20,Canada,2016A000011124,Persons,249,units,0,v1,1,37894799,,,,0
+Apr-20,Canada,2016A000011124,Persons,249,units,0,v1,1,37971020,,,,0
+Apr-19,Newfoundland and Labrador,2016A000210,Persons,249,units,0,v2,2,522818,,,,0
+Jul-19,Newfoundland and Labrador,2016A000210,Persons,249,units,0,v2,2,521542,,,,0
+Oct-19,Newfoundland and Labrador,2016A000210,Persons,249,units,0,v2,2,521922,,,,0
+Jan-20,Newfoundland and Labrador,2016A000210,Persons,249,units,0,v2,2,521365,,,,0
+Apr-20,Newfoundland and Labrador,2016A000210,Persons,249,units,0,v2,2,520437,,,,0
+Apr-19,Prince Edward Island,2016A000211,Persons,249,units,0,v8,3,155656,,,,0
+Jul-19,Prince Edward Island,2016A000211,Persons,249,units,0,v8,3,156947,,,,0
+Oct-19,Prince Edward Island,2016A000211,Persons,249,units,0,v8,3,157901,,,,0
+Jan-20,Prince Edward Island,2016A000211,Persons,249,units,0,v8,3,158158,,,,0
+Apr-20,Prince Edward Island,2016A000211,Persons,249,units,0,v8,3,158717,,,,0
+Apr-19,Nova Scotia,2016A000212,Persons,249,units,0,v9,4,966709,,,,0
+Jul-19,Nova Scotia,2016A000212,Persons,249,units,0,v9,4,971395,,,,0
+Oct-19,Nova Scotia,2016A000212,Persons,249,units,0,v9,4,976768,,,,0
+Jan-20,Nova Scotia,2016A000212,Persons,249,units,0,v9,4,977457,,,,0
+Apr-20,Nova Scotia,2016A000212,Persons,249,units,0,v9,4,978274,,,,0
+Apr-19,New Brunswick,2016A000213,Persons,249,units,0,v10,5,773887,,,,0
+Jul-19,New Brunswick,2016A000213,Persons,249,units,0,v10,5,776827,,,,0
+Oct-19,New Brunswick,2016A000213,Persons,249,units,0,v10,5,780021,,,,0
+Jan-20,New Brunswick,2016A000213,Persons,249,units,0,v10,5,779993,,,,0
+Apr-20,New Brunswick,2016A000213,Persons,249,units,0,v10,5,780890,,,,0
+Apr-19,Quebec,2016A000224,Persons,249,units,0,v11,6,8447609,,,,0
+Jul-19,Quebec,2016A000224,Persons,249,units,0,v11,6,8484965,,,,0
+Oct-19,Quebec,2016A000224,Persons,249,units,0,v11,6,8522800,,,,0
+Jan-20,Quebec,2016A000224,Persons,249,units,0,v11,6,8537674,,,,0
+Apr-20,Quebec,2016A000224,Persons,249,units,0,v11,6,8552362,,,,0
+Apr-19,Ontario,2016A000235,Persons,249,units,0,v12,7,14484242,,,,0
+Jul-19,Ontario,2016A000235,Persons,249,units,0,v12,7,14566547,,,,0
+Oct-19,Ontario,2016A000235,Persons,249,units,0,v12,7,14659616,,,,0
+Jan-20,Ontario,2016A000235,Persons,249,units,0,v12,7,14711827,,,,0
+Apr-20,Ontario,2016A000235,Persons,249,units,0,v12,7,14745040,,,,0
+Apr-19,Manitoba,2016A000246,Persons,249,units,0,v13,8,1364400,,,,0
+Jul-19,Manitoba,2016A000246,Persons,249,units,0,v13,8,1369465,,,,0
+Oct-19,Manitoba,2016A000246,Persons,249,units,0,v13,8,1373859,,,,0
+Jan-20,Manitoba,2016A000246,Persons,249,units,0,v13,8,1377517,,,,0
+Apr-20,Manitoba,2016A000246,Persons,249,units,0,v13,8,1379121,,,,0
+Apr-19,Saskatchewan,2016A000247,Persons,249,units,0,v14,9,1171027,,,,0
+Jul-19,Saskatchewan,2016A000247,Persons,249,units,0,v14,9,1174462,,,,0
+Oct-19,Saskatchewan,2016A000247,Persons,249,units,0,v14,9,1178657,,,,0
+Jan-20,Saskatchewan,2016A000247,Persons,249,units,0,v14,9,1181666,,,,0
+Apr-20,Saskatchewan,2016A000247,Persons,249,units,0,v14,9,1181987,,,,0
+Apr-19,Alberta,2016A000248,Persons,249,units,0,v15,10,4350901,,,,0
+Jul-19,Alberta,2016A000248,Persons,249,units,0,v15,10,4371316,,,,0
+Oct-19,Alberta,2016A000248,Persons,249,units,0,v15,10,4395586,,,,0
+Jan-20,Alberta,2016A000248,Persons,249,units,0,v15,10,4413146,,,,0
+Apr-20,Alberta,2016A000248,Persons,249,units,0,v15,10,4428247,,,,0
+Apr-19,British Columbia,2016A000259,Persons,249,units,0,v3,11,5046780,,,,0
+Jul-19,British Columbia,2016A000259,Persons,249,units,0,v3,11,5071336,,,,0
+Oct-19,British Columbia,2016A000259,Persons,249,units,0,v3,11,5105576,,,,0
+Jan-20,British Columbia,2016A000259,Persons,249,units,0,v3,11,5110917,,,,0
+Apr-20,British Columbia,2016A000259,Persons,249,units,0,v3,11,5120184,,,,0
+Apr-19,Yukon,2016A000260,Persons,249,units,0,v4,12,40601,,,,0
+Jul-19,Yukon,2016A000260,Persons,249,units,0,v4,12,40854,,,,0
+Oct-19,Yukon,2016A000260,Persons,249,units,0,v4,12,41022,,,,0
+Jan-20,Yukon,2016A000260,Persons,249,units,0,v4,12,41078,,,,0
+Apr-20,Yukon,2016A000260,Persons,249,units,0,v4,12,41293,,,,0
+Apr-19,Northwest Territories,2016A000261,Persons,249,units,0,v6,14,44909,,,,0
+Jul-19,Northwest Territories,2016A000261,Persons,249,units,0,v6,14,44826,,,,0
+Oct-19,Northwest Territories,2016A000261,Persons,249,units,0,v6,14,44895,,,,0
+Jan-20,Northwest Territories,2016A000261,Persons,249,units,0,v6,14,44904,,,,0
+Apr-20,Northwest Territories,2016A000261,Persons,249,units,0,v6,14,44982,,,,0
+Apr-19,Nunavut,2016A000262,Persons,249,units,0,v7,15,38666,,,,0
+Jul-19,Nunavut,2016A000262,Persons,249,units,0,v7,15,38780,,,,0
+Oct-19,Nunavut,2016A000262,Persons,249,units,0,v7,15,38873,,,,0
+Jan-20,Nunavut,2016A000262,Persons,249,units,0,v7,15,39097,,,,0
+Apr-20,Nunavut,2016A000262,Persons,249,units,0,v7,15,39486,,,,0
