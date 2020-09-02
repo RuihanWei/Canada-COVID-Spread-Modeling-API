@@ -604,6 +604,18 @@ def load_canada_pop_data(paramdict):
       pops.append(extracted["VALUE"][0])
   return pops
 
+def retrieve_stage_mobility(paramdict):
+
+  data = data_retriever(country=paramdict['country'], states=paramdict['states'], counties=paramdict['counties'])
+  df_required = data.get_mobility_data()
+
+  # Ontario: lockdown: March 24, Stage 1: May 19, Stage 2: June 12-19 (Excluding Windsor), Stage 3: July 17-24
+  #if (paramdict['states'] == "Ontario"):
+
+
+  return 0
+
+
 
 # Parameters to change to get the data
 @click.command()
