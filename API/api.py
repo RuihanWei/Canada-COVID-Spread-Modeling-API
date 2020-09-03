@@ -1,15 +1,16 @@
-from flask import Flask
-app = Flask(__name__)
-import pymongo
+import flask
+
+app = flask.Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 @app.route("/")
 def hello():
-  return "Hello World!"
-
+  return flask.render_template("index.html", token="hello")
 
 
 if __name__ == "__main__":
   app.run(debug=True)
+
 
 
 
