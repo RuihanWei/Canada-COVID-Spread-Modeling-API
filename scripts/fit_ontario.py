@@ -4,6 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import torch
 import datetime as dt
+import csv
+import pymongo
 
 ############### Paths ##############################
 ####################################################
@@ -29,14 +31,18 @@ reporting_rate = 0.1  # Portion of cases that are actually detected
 delay_days = 10  # Days between becoming infected / positive confirmation (due to incubation period / testing latency
 start_model = 23  # The day where we begin our fit
 
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["covid"]
+collection = db['csv']
+
 # only support single-region for now (due to reopening diff)
-def train_and_forecast(provinces, counties):
+def train_and_forecast(provinces):
   ############## Simplified Data ####################
   ###################################################
   paramdict = {}
   paramdict['country'] = 'Canada'
   paramdict['states'] = provinces
-  paramdict['counties'] = counties
+  paramdict['counties'] = None
   region_name = 'Ontario'
 
   # paramdict['counties'] = ['Bexar County']
@@ -52,7 +58,6 @@ def train_and_forecast(provinces, counties):
   population = populations[0]
 
   case_data = retrieve_data.get_case_data_JHP(paramdict)
-
 
   ini_date_str = "1/22/20"
   if len(ini_date_str.split("/")[0]) == 1:
@@ -175,58 +180,28 @@ def train_and_forecast(provinces, counties):
   ###################################################
   print('\n#########################################\n\n')
   timestamp = dt.datetime.now().strftime('%Y_%m_%d')
+
+  os.chdir('../Prediction_results')
   for case in cases:
+    newcsv = {
+      "case": str(case),
+      "country": paramdict['country'],
+      "province": paramdict['states'][0],
+      "filename": str(case)+"_"+paramdict['country']+"_"+paramdict['states'][0]+".csv"
+    }
+    collection.insert_one(newcsv)
+
+    with open(str(case)+"_"+paramdict['country']+"_"+paramdict['states'][0]+".csv", "w") as csv_file:
+      wr = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+      wr.writerow(active[case])
+
     M = np.max(active[case])
     idx = np.argmax(active[case])
     print('Case: {}%'.format(case))
     print('  Max value: {}'.format(M))
     print('  Day: {}, {}'.format(idx, dates[idx]))
 
-  ############### Plotting ##########################
-  ###################################################
-  gt = np.squeeze(Y.numpy()) * reporting_rate * population
-
-  # plot styles & plot letters
-  cs = {25: 'b-', 50: 'g--', 75: 'y-.', 100: 'r:'}
-  cl = {25: 'a', 50: 'b', 75: 'c', 100: 'd'}
-
-  # Default text size
-  plt.rcParams.update({'font.size': 22})
-
-  # Plot 1. Total Cases (Log)
-  plt.figure(dpi=100, figsize=(16, 8))
-  pidx = gt.shape[0] + 60  # write letter prediction at 60 days in the future
-  for case in total.keys():
-    plt.plot(dates, total[case], cs[case], linewidth=4.0,
-             label='{}. {}% Mobility'.format(cl[case], case))
-    plt.text(dates[pidx], total[case][pidx], cl[case])
-  plt.plot(dates[:Y.shape[0]], gt, 'ks', label='SAMHD Data')
-
-  plt.title('Total Case Count')
-  plt.ylabel('Count')
-  plt.yscale('log')
-  util.plt_setup()
-  plt.savefig(RESULTS_DIR + '/{}_Total_Cases.pdf'.format(timestamp))
-  plt.show()
-
-  # Plots 2 & 3. Active Cases (zoomed out and zoomed in)
-  for zoom in [True, False]:
-    plt.figure(dpi=100, figsize=(16, 8))
-    for case in total.keys():
-      plt.plot(dates, active[case], cs[case], linewidth=4.0,
-               label='{}. {}% Mobility'.format(cl[case], case))
-      pidx = (gt.shape[0] + 10 if zoom else
-              np.argmax(active[case]))  # write at 10 days or peak
-      plt.text(dates[pidx], active[case][pidx], cl[case])
-
-    plt.title('Active (Infectious) Case Count')
-    plt.ylabel('Count')
-    if zoom:
-      plt.ylim((0, gt[-1]))
-    util.plt_setup()
-    plt.savefig(RESULTS_DIR + '/{}_Active_Cases{}.pdf'.format(timestamp, zoom))
-    plt.show()
-
 # train_and_forecast(['Ontario'], ['Toronto Division'])
-train_and_forecast(['Ontario'], ['Timiskaming District'])
+# train_and_forecast(['Ontario'], ['Timiskaming District'])
+train_and_forecast(['Ontario'])
 
