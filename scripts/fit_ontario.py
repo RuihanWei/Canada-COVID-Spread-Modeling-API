@@ -191,8 +191,9 @@ def train_and_forecast(provinces):
     }
     collection.insert_one(newcsv)
 
-    with open(str(case)+"_"+paramdict['country']+"_"+paramdict['states'][0]+".csv", "w") as csv_file:
+    with open(str(case)+"_"+paramdict['country']+"_"+paramdict['states'][0]+".csv", "w", newline='') as csv_file:
       wr = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+      wr.writerow(dates)
       wr.writerow(active[case])
 
     M = np.max(active[case])
