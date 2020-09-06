@@ -55,7 +55,7 @@ function App() {
     setprovince(event.value);
   }
 
-  var title = `case: ${case_}, country: ${country}, province: ${province}, ava: ${availableProvinces}, ava:${availableCases}`
+  var title = `case: ${case_}, country: ${country}, province: ${province}`
   
   let chartData = {
     labels: dates,
