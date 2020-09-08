@@ -8,7 +8,7 @@ import Select from 'react-select';
 
 
 function App() {
-  const[case_, setcase_] = useState("25");
+  const[case_, setcase_] = useState("25%");
   const[province, setprovince] = useState("Ontario");
   const[country, setcountry] = useState("Canada");
 
@@ -72,7 +72,7 @@ function App() {
   return (
     <div className="App">
       <Dropdown options={availableProvinces} onChange={onSelectProvince} value = {province} placeholder="Select a Province" />
-      <Dropdown options={availableCases} onChange={onSelectMobility} value = {country} placeholder="Select a mobility (percentage w.r.t. baseline)" />
+      <Dropdown options={availableCases} onChange={onSelectMobility} value = {case_} placeholder="Select a mobility (percentage w.r.t. baseline)" />
       <Chart chartData = {chartData} displayTitle={title} />
     </div>
   );

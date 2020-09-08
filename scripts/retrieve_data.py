@@ -610,10 +610,28 @@ def retrieve_stage_mobility(paramdict):
   df_required = data.get_mobility_data()
 
   # Ontario: lockdown: March 24, Stage 1: May 19, Stage 2: June 12-19 (Excluding Windsor), Stage 3: July 17-24
-  #if (paramdict['states'] == "Ontario"):
+  # if (paramdict['states'] == "Ontario"):
 
+  # lockdown: March 24
+  lockdown = df_required.iloc[38, 10:16].sum() / 6
+  # Stage 1: May 19
+  #stage_1 = df_required.iloc[94, 10:16].sum() / 6
+  # Stage 2: June 12-19
+  index = 118
+  perct = 0
+  while index <= 125:
+    perct += df_required.iloc[index, 10:16].sum()
+    index += 1
+  stage_2 = perct/(125-118+1)
+  # Stage 3: July 17-24
+  index = 153
+  perct = 0
+  while index <= 160:
+    perct += df_required.iloc[index, 10:16].sum()
+    index += 1
+  stage_3 = perct / (160 - 153 + 1)
 
-  return 0
+  return {int(lockdown): "lockdown", int(stage_2): "stage_2", int(stage_3): "stage_3"}
 
 
 

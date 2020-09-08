@@ -73,13 +73,14 @@ if __name__ == "__main__":
 
 
 
-#############  db creation for reference
+#############  db creation/deletion for reference
+# db deletion
 # client = pymongo.MongoClient("mongodb://localhost:27017/")
 # db = client["covid"]
 # collection = db['csv']
+# collection.delete_many({})
 
-# db creation code
-# client = pymongo.MongoClient("mongodb://localhost:27017/")
+#db creation code
 # db = client["covid"]
 # db.create_collection('csv')
 # # collection = db['csv']

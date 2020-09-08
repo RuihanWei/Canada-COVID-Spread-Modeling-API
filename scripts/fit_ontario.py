@@ -157,7 +157,13 @@ def train_and_forecast(provinces):
   ####################################################
   active = {}
   total = {}
-  cases = [25, 50, 75, 100]
+  stage_mobility[25] = "25%"
+  stage_mobility[50] = "50%"
+  stage_mobility[75] = "75%"
+  stage_mobility[100] = "100%"
+
+  cases = stage_mobility.keys()
+
   for case in cases:
     xN = torch.ones((1, 6), dtype=torch.float32) * case / 100
     rX = xN.expand(200, *xN.shape)  # 200 x 1 x 6
@@ -184,14 +190,14 @@ def train_and_forecast(provinces):
   os.chdir('../Prediction_results')
   for case in cases:
     newcsv = {
-      "case": str(case),
+      "case": stage_mobility[case],
       "country": paramdict['country'],
       "province": paramdict['states'][0],
-      "filename": str(case)+"_"+paramdict['country']+"_"+paramdict['states'][0]+".csv"
+      "filename": stage_mobility[case]+"_"+paramdict['country']+"_"+paramdict['states'][0]+".csv"
     }
     collection.insert_one(newcsv)
 
-    with open(str(case)+"_"+paramdict['country']+"_"+paramdict['states'][0]+".csv", "w", newline='') as csv_file:
+    with open(stage_mobility[case]+"_"+paramdict['country']+"_"+paramdict['states'][0]+".csv", "w", newline='') as csv_file:
       wr = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
       wr.writerow(dates)
       wr.writerow(active[case])
