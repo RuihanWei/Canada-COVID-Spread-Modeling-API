@@ -1,3 +1,5 @@
+Front-end component: https://github.com/RuihanWei/Canada-COVID-Spread-Modeling-UI/tree/master
+
 Paper on SIRNet from Soures et. al.:
 [arxiv.org/abs/2004.10376](https://arxiv.org/abs/2004.10376)
 
