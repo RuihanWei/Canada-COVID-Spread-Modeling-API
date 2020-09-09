@@ -197,7 +197,8 @@ def train_and_forecast(provinces):
       "province": paramdict['states'][0],
       "filename": stage_mobility[case]+"_"+paramdict['country']+"_"+paramdict['states'][0]+".csv"
     }
-    collection.insert_one(newcsv)
+    if (collection.find(newcsv).count() < 0):
+      collection.insert_one(newcsv)
 
     with open(stage_mobility[case]+"_"+paramdict['country']+"_"+paramdict['states'][0]+".csv", "w", newline='') as csv_file:
       wr = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
