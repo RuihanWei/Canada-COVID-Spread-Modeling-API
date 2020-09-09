@@ -31,7 +31,8 @@ reporting_rate = 0.1  # Portion of cases that are actually detected
 delay_days = 10  # Days between becoming infected / positive confirmation (due to incubation period / testing latency
 start_model = 23  # The day where we begin our fit
 
-client = pymongo.MongoClient("mongodb://localhost:27017/")
+client = pymongo.MongoClient("mongodb+srv://Jeremy:<password>@cluster0.ptx5w.mongodb.net/covid?retryWrites=true&w=majority")
+# client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["covid"]
 collection = db['csv']
 
@@ -188,6 +189,7 @@ def train_and_forecast(provinces):
   timestamp = dt.datetime.now().strftime('%Y_%m_%d')
 
   os.chdir('../Prediction_results')
+
   for case in cases:
     newcsv = {
       "case": stage_mobility[case],

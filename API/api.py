@@ -3,6 +3,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 import pymongo
+from pymongo import MongoClient
 
 @app.route("/test", methods=['GET'])
 def hello():
@@ -74,6 +75,14 @@ if __name__ == "__main__":
 
 
 #############  db creation/deletion for reference
+
+
+# mLab
+# cluster = MongoClient("mongodb+srv://Jeremy:<password>@cluster0.ptx5w.mongodb.net/covid?retryWrites=true&w=majority")
+# db = cluster["covid"]
+# collection = db['csv']
+# collection.insert_one({"test": "test"})
+
 # db deletion
 # client = pymongo.MongoClient("mongodb://localhost:27017/")
 # db = client["covid"]
