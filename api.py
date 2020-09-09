@@ -1,9 +1,14 @@
 import csv
+import urllib
+
 from flask import Flask, jsonify
+import pandas as pd
 
 app = Flask(__name__)
 import pymongo
 from pymongo import MongoClient
+
+csv_folder_url = 'https://raw.githubusercontent.com/RuihanWei/Canada-COVID-Spread-Modeling-API/master/Prediction_results/'
 
 @app.route("/test", methods=['GET'])
 def hello():
@@ -20,12 +25,17 @@ def getForecast(case, country, province):
     "province": province
   }
   res = collection.find_one(query)
-  filepath = res["filename"]
+
+  # data1 = []
+  # with open('Prediction_results/' + res["filename"], newline='') as inputfile:
+  #   for row in csv.reader(inputfile):
+  #     data1.append(row)
 
   data = []
-  with open('Prediction_results/' + filepath, newline='') as inputfile:
-    for row in csv.reader(inputfile):
-      data.append(row)
+  # # csv_url = 'https://raw.githubusercontent.com/RuihanWei/Canada-COVID-Spread-Modeling-API/master/Prediction_results/100%25_Canada_Ontario.csv'
+  df = pd.read_csv(csv_folder_url+"/"+urllib.parse.quote_plus(res["filename"]))
+  data.append(df.columns.tolist())
+  data.append(df.values.tolist()[0])
 
   return jsonify({"dates": data[0],
                   "values": data[1]})
@@ -75,8 +85,6 @@ if __name__ == "__main__":
 
 
 #############  db creation/deletion for reference
-
-
 # mLab
 # cluster = MongoClient("mongodb+srv://Jeremy:<password>@cluster0.ptx5w.mongodb.net/covid?retryWrites=true&w=majority")
 # db = cluster["covid"]
