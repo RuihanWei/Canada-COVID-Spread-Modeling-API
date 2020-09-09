@@ -11,7 +11,7 @@ def hello():
 
 @app.route("/getForecast/<case>/<country>/<province>", methods=['GET'])
 def getForecast(case, country, province):
-  client = pymongo.MongoClient("mongodb://localhost:27017/")
+  client = MongoClient("mongodb+srv://Jeremy:<password>@cluster0.ptx5w.mongodb.net/covid?retryWrites=true&w=majority")
   db = client["covid"]
   collection = db['csv']
   query = {
@@ -23,7 +23,7 @@ def getForecast(case, country, province):
   filepath = res["filename"]
 
   data = []
-  with open('../Prediction_results/' + filepath, newline='') as inputfile:
+  with open('Prediction_results/' + filepath, newline='') as inputfile:
     for row in csv.reader(inputfile):
       data.append(row)
 
@@ -32,7 +32,7 @@ def getForecast(case, country, province):
 
 @app.route("/getCases/<country>/<province>")
 def getCases(country, province):
-  client = pymongo.MongoClient("mongodb://localhost:27017/")
+  client = MongoClient("mongodb+srv://Jeremy:<password>@cluster0.ptx5w.mongodb.net/covid?retryWrites=true&w=majority")
   db = client["covid"]
   collection = db['csv']
   query = {
@@ -49,7 +49,7 @@ def getCases(country, province):
 
 @app.route("/getProvinces")
 def getProvinces():
-  client = pymongo.MongoClient("mongodb://localhost:27017/")
+  client = MongoClient("mongodb+srv://Jeremy:<password>@cluster0.ptx5w.mongodb.net/covid?retryWrites=true&w=majority")
   db = client["covid"]
   collection = db['csv']
 
