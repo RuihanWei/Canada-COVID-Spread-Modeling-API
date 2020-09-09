@@ -1,0 +1,57 @@
+[{
+  "_id": {
+    "$oid": "5f5851692074cd1513e7071d"
+  },
+  "case": "lockdown",
+  "country": "Canada",
+  "province": "Ontario",
+  "filename": "lockdown_Canada_Ontario.csv"
+},{
+  "_id": {
+    "$oid": "5f58516a2074cd1513e7071e"
+  },
+  "case": "stage_2",
+  "country": "Canada",
+  "province": "Ontario",
+  "filename": "stage_2_Canada_Ontario.csv"
+},{
+  "_id": {
+    "$oid": "5f58516a2074cd1513e7071f"
+  },
+  "case": "stage_3",
+  "country": "Canada",
+  "province": "Ontario",
+  "filename": "stage_3_Canada_Ontario.csv"
+},{
+  "_id": {
+    "$oid": "5f58516a2074cd1513e70720"
+  },
+  "case": "25%",
+  "country": "Canada",
+  "province": "Ontario",
+  "filename": "25%_Canada_Ontario.csv"
+},{
+  "_id": {
+    "$oid": "5f58516a2074cd1513e70721"
+  },
+  "case": "50%",
+  "country": "Canada",
+  "province": "Ontario",
+  "filename": "50%_Canada_Ontario.csv"
+},{
+  "_id": {
+    "$oid": "5f58516a2074cd1513e70722"
+  },
+  "case": "75%",
+  "country": "Canada",
+  "province": "Ontario",
+  "filename": "75%_Canada_Ontario.csv"
+},{
+  "_id": {
+    "$oid": "5f58516a2074cd1513e70723"
+  },
+  "case": "100%",
+  "country": "Canada",
+  "province": "Ontario",
+  "filename": "100%_Canada_Ontario.csv"
+}]
